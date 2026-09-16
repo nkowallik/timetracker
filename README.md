@@ -58,9 +58,29 @@ the host, so it survives container and image deletion. Set `TZ` in
 
 ### Desktop app
 
-A self-contained Electron build for Windows, Linux and macOS lives in
-[`electron/`](electron/README.md). No Docker or Node.js is needed to run it
-once built.
+The [`electron/`](electron/) folder wraps the same app in an Electron shell for
+Windows 10/11, Linux and macOS. It starts the server on a loopback port and
+opens a window on it, so once built it needs neither Docker nor Node.js. Your
+data is stored outside the install directory and survives updates:
+
+- Windows: `%APPDATA%\TimeTracker\timetracker.db`
+- Linux: `~/.config/TimeTracker/timetracker.db`
+- macOS: `~/Library/Application Support/TimeTracker/timetracker.db`
+
+Day boundaries follow the machine's local timezone. Exports are saved to your
+Downloads folder.
+
+To build all installers on Linux (Windows needs `wine`):
+
+```sh
+cd electron && ./build-all.sh
+```
+
+This produces an NSIS installer for Windows, an AppImage for Linux and zips for
+Apple Silicon and Intel Macs in `electron/dist/`. The builds are unsigned, so
+Windows SmartScreen and macOS Gatekeeper warn on first launch. The macOS build
+has not been tested on a Mac. Per-platform builds, data migration from Docker
+and troubleshooting are in [`electron/README.md`](electron/README.md).
 
 ### From source
 
