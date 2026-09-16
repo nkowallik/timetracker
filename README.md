@@ -5,6 +5,8 @@
 A local, single-user work-time tracker with two columns: **Job** on the left and
 **PhD** on the right.
 
+![TimeTracker main view](docs/timetrackerstuff.png)
+
 ## Why this exists
 
 I work as a research assistant and am pursuing a PhD at the same time. The
