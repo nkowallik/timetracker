@@ -1,16 +1,19 @@
 # TimeTracker
 
+[![CI](https://github.com/nkowallik/timetracker/actions/workflows/ci.yml/badge.svg)](https://github.com/nkowallik/timetracker/actions/workflows/ci.yml)
+
 A local, single-user work-time tracker with two columns: **Job** on the left and
 **PhD** on the right.
 
 ## Why this exists
 
-I started a PhD alongside a regular job and never managed to find the time for
-it. I built this tool to find out where the hours actually went: how much of my
-working time was really spent on the job, how much on the PhD, and how far
-that was from the split I had intended. It grew into a general flexitime
-tracker along the way, with vacation and sick-day handling and German public
-holidays, because those were the things that kept skewing my numbers.
+I work as a research assistant and am pursuing a PhD at the same time. The
+position is supposed to leave room for the doctorate, but I never managed to
+find that time. I built this tool to find out where the hours actually went:
+how much of my working time was really spent on the job, how much on the PhD,
+and how far that was from the split I had intended. It grew into a general
+flexitime tracker along the way, with vacation and sick-day handling and German
+public holidays, because those were the things that kept skewing my numbers.
 
 It is a personal project. It works for me, on my machine, for my situation.
 See [No warranty](#no-warranty) below.
@@ -169,8 +172,8 @@ Schema changes: edit `src/lib/server/db/schema.ts`, then run
 `npx drizzle-kit generate`. Migrations in `drizzle/` run at startup.
 
 Built with SvelteKit (Svelte 5), SQLite via Drizzle ORM and better-sqlite3,
-Tailwind CSS 4 and pdfmake. CI runs the type check, the tests and a production
-build on every push.
+Tailwind CSS 4 and pdfmake. Every push and pull request runs the type check, the unit tests and a
+production build on GitHub Actions. The badge at the top links to the runs.
 
 ## No warranty
 
