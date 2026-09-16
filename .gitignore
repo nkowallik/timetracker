@@ -1,0 +1,32 @@
+# dependencies
+node_modules/
+
+# build output
+/build/
+/.svelte-kit/
+electron/app/
+electron/drizzle/
+electron/dist/
+
+# local database (bind-mounted into the container); keep the directory itself
+data/*
+!data/.gitkeep
+
+# environment
+.env
+.env.*
+!.env.example
+
+# editor and tooling
+.vscode/
+.claude/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*

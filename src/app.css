@@ -1,0 +1,74 @@
+@import 'tailwindcss';
+
+:root {
+	color-scheme: light;
+	--page: #f9f9f7;
+	--surface-1: #fcfcfb;
+	--text-primary: #0b0b0b;
+	--text-secondary: #52514e;
+	--text-muted: #898781;
+	--gridline: #e1e0d9;
+	--baseline: #c3c2b7;
+	--ring-hairline: rgba(11, 11, 11, 0.1);
+	--series-job: #2a78d6;
+	--series-phd: #eb6834;
+	--good: #006300;
+	--critical: #d03b3b;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:where(:not([data-theme='light'])) {
+		color-scheme: dark;
+		--page: #0d0d0d;
+		--surface-1: #1a1a19;
+		--text-primary: #ffffff;
+		--text-secondary: #c3c2b7;
+		--text-muted: #898781;
+		--gridline: #2c2c2a;
+		--baseline: #383835;
+		--ring-hairline: rgba(255, 255, 255, 0.1);
+		--series-job: #3987e5;
+		--series-phd: #d95926;
+		--good: #0ca30c;
+	}
+}
+
+:root[data-theme='dark'] {
+	color-scheme: dark;
+	--page: #0d0d0d;
+	--surface-1: #1a1a19;
+	--text-primary: #ffffff;
+	--text-secondary: #c3c2b7;
+	--text-muted: #898781;
+	--gridline: #2c2c2a;
+	--baseline: #383835;
+	--ring-hairline: rgba(255, 255, 255, 0.1);
+	--series-job: #3987e5;
+	--series-phd: #d95926;
+	--good: #0ca30c;
+}
+
+@theme inline {
+	--color-page: var(--page);
+	--color-surface: var(--surface-1);
+	--color-ink: var(--text-primary);
+	--color-ink-2: var(--text-secondary);
+	--color-muted: var(--text-muted);
+	--color-line: var(--gridline);
+	--color-baseline: var(--baseline);
+	--color-job: var(--series-job);
+	--color-phd: var(--series-phd);
+	--color-good: var(--good);
+	--color-critical: var(--critical);
+	--font-sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+body {
+	background: var(--page);
+	color: var(--text-primary);
+	font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.hairline {
+	box-shadow: 0 0 0 1px var(--ring-hairline);
+}

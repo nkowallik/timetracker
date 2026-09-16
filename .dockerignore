@@ -1,0 +1,11 @@
+node_modules
+build
+.svelte-kit
+data
+.git
+.github
+.vscode
+.claude
+electron
+*.md
+!drizzle/**

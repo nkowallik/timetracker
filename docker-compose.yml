@@ -1,0 +1,15 @@
+services:
+  timetracker:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      - DB_PATH=/data/timetracker.db
+      - PORT=3000
+      # Day boundaries (midnight splits, "today") follow this timezone — set to yours.
+      - TZ=Europe/Berlin
+      - ORIGIN=http://localhost:3000
+    volumes:
+      # DB lives on the host, so data survives container/image deletion.
+      - ./data:/data
+    restart: unless-stopped

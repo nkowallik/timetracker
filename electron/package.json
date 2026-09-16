@@ -1,0 +1,73 @@
+{
+	"name": "timetracker-desktop",
+	"private": true,
+	"version": "0.0.5",
+	"description": "TimeTracker desktop app (Electron shell around the SvelteKit build)",
+	"main": "main.js",
+	"scripts": {
+		"start": "electron .",
+		"dist:win": "electron-builder --win",
+		"dist:linux": "electron-builder --linux",
+		"postinstall": "electron-builder install-app-deps"
+	},
+	"dependencies": {
+		"better-sqlite3": "^13.0.3",
+		"drizzle-orm": "^0.45.2",
+		"pdfmake": "^0.3.11"
+	},
+	"devDependencies": {
+		"electron": "^38.0.0",
+		"electron-builder": "^25.1.8"
+	},
+	"build": {
+		"appId": "dev.miko.timetracker",
+		"productName": "TimeTracker",
+		"asar": false,
+		"npmRebuild": false,
+		"files": [
+			"main.js",
+			"app/**",
+			"drizzle/**"
+		],
+		"directories": {
+			"output": "dist"
+		},
+		"win": {
+			"target": [
+				{
+					"target": "nsis",
+					"arch": [
+						"x64"
+					]
+				}
+			]
+		},
+		"nsis": {
+			"oneClick": false,
+			"allowToChangeInstallationDirectory": true
+		},
+		"linux": {
+			"target": [
+				"AppImage"
+			],
+			"category": "Office"
+		},
+		"mac": {
+			"target": [
+				{
+					"target": "zip",
+					"arch": [
+						"arm64",
+						"x64"
+					]
+				}
+			],
+			"category": "public.app-category.productivity"
+		}
+	},
+	"allowScripts": {
+		"electron@38.8.6": true,
+		"electron-winstaller@5.4.0": true,
+		"better-sqlite3@13.0.3": true
+	}
+}
